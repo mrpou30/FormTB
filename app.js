@@ -246,7 +246,6 @@ function bindEvents(){
   // $('btnFinish').addEventListener('click', onFinish);
   $('btnHapusOpname').addEventListener('click', hapusSemuaOpname);
   $('btnExportXls').addEventListener('click', exportOpnameXls);
-  $('btnShareWa').addEventListener('click', shareToWhatsapp);
   $('inputFoto').addEventListener('change', async (e) => {
   const file = e.target.files[0];
   if (!file) {
