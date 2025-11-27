@@ -174,8 +174,30 @@ async function init(){
 }
 document.addEventListener('DOMContentLoaded', init);
 
+//fungsi deteksi ios
+function isIOS() {
+  return /iPhone|iPad|iPod/i.test(navigator.userAgent);
+}
+
 /* bind event listeners */
 function bindEvents(){
+   if (isIOS()) {
+    // IOS → tampilkan tombol khusus
+    $('btnShareWa').style.display = 'none';
+    $('btnShareWaIOS').style.display = 'block';
+
+    // Event tombol versi iOS
+    $('btnShareWaIOS').addEventListener('click', shareToWhatsappIOS);
+
+  } else {
+    // Android / Windows / Mac
+    $('btnShareWaIOS').style.display = 'none';
+    $('btnShareWa').style.display = 'block';
+
+    // Event tombol WA asli
+    $('btnShareWa').addEventListener('click', shareToWhatsapp);
+  }
+   
   $('btnPou').addEventListener('click', () => {
   $('modalPou').style.display = "flex";
     });
